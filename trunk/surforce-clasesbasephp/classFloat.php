@@ -47,27 +47,5 @@ class Float extends Number{
        return self::$instancia;
     }
 } 
-//prueba de métodos
-
-// constructor
-$valor = new Float(12.32);
-
-//valueOf
-$valor2 = float::valueOf(12.33);
-$valor3 = float::valueOf(12365463);
-
-//Compare
-echo $valor->compare(12.32)."<br/>";
-echo $valor->compare(12.00)."<br/>";
-echo $valor->compare(14.15)."<br/>"; 
-
-echo $valor2->compare(12.32)."<br/>";
-echo $valor2->compare(12.00)."<br/>";
-echo $valor2->compare(14.15)."<br/>"; 
-//No va a funcionar porque en realidad porque $valor3 es una copia de $valor2
-echo $valor3->compare(12.32)."<br/>";
-echo $valor3->compare(12.00)."<br/>";
-echo $valor3->compare(14.15)."<br/>"; 
-
 
 ?>
