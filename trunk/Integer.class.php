@@ -1,6 +1,6 @@
 <?php
 
-include_once("Number.class.php")
+include_once("Number.class.php");
 
 /**
  * Clase Integer
@@ -10,12 +10,14 @@ include_once("Number.class.php")
  * clase extiende a la clase Number
  *
  * Ejemplo de Uso:
- *
+ * <code>
  * $diez = new Integer(10);
  * echo $diez;
  * echo $diez->intValue(); //Equivalente a la linea anterior
  * echo $diez->floatValue(); //Devuelve el numero en formato float
+ * </code>
  *
+ * @package clasebasephp
  * @access public
  */
 class Integer extends Number{
@@ -49,6 +51,8 @@ class Integer extends Number{
         }
 
         /**
+         * Retorna el valor en formato float.
+         *
          * @access public
          */
         public function floatValue() {
@@ -68,30 +72,31 @@ class Integer extends Number{
            }
 
         /**
-         * int intval ()
-         *
          * Devuelve el valor Integer.
-           *
-           * @access public
+         *
+         * @access public
          */
-         public function intValue(){
+        public function intValue(){
             return intval($this->valor);
-         }
+        }
 
         /**
-         * String __toString()
-         *
          * Función magica que es llamada cada vez que se intente
          * imprimir la instancia de esta clase.
          *
          * @access public
          */
-         public function __toString(){
+        public function __toString(){
                  return (string)$this->valor;
-         }
+        }
 
-         public function setValue(Integer $num){
+		/**
+		 * Funcion para cambiar el valor del objeto
+		 *
+		 * @access public
+		 */
+        public function setValue(Integer $num){
                  $this->valor = $num->intValue();
-         }
+        }
 }
 ?>
