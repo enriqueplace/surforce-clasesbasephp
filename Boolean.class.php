@@ -1,5 +1,19 @@
 <?php
+include_once("String.class.php");
+
+/**
+ * Clase Base Boolean
+ *
+ * La clase Boolean instancia objetos que tienen valores de tipo bool,
+ * los conocidos valores true o false
+ *
+ * @package clasebasephp
+ * @access public
+ */
 class Boolean {
+	/**
+	 * @property mixed $valor propiedad privada valor de lectura y esritura
+	 */
 	private $valor;
 	/*
 	 * La clase Boolean instancia objetos cuyo valor puede ser de tipo bool, true o false
@@ -23,6 +37,14 @@ class Boolean {
 
 	}
 
+	/**
+	 * Metodo booleanValue
+	 *
+	 * Retorna el valor del objeto Boolean
+	 *
+	 * @method bool booleanValue()
+	 * @return bool
+	 */
 	public function booleanValue(){
 		return (bool)$this->valor;
 	}
@@ -72,6 +94,27 @@ class Boolean {
 	  }
 	}
 
+	/**
+	 * Metodo toString
+	 *
+	 * Retorna una instancia de la clase String, <br>
+	 * si el argumento del constructor de la clase String es false el valor retornado será "" (cadena vacía)<br>
+	 * si el argumento del constructor de la clase String es true el valor retornado será "1"<br>
+	 *
+	 * Argumentos:<br>
+	 * 	<b>boolean</b>, retorna una instancia de la Clase Base String con valor
+	 * 		especificado por el parametro de tipo bool<br>
+	 * 	<b>null</b>, retorna una instancia de la Clase Base String con valor "true" si el valor del objeto que llama al metodo es true, y false  en los demas casos<br>
+	 *
+	 * <b>Requerimiento Adicional</b>:
+	 * Requiere la inclusion del la Clase Base String: String.class.php
+	 *
+	 *
+	 * @method String toString() toString(boolean $boolean)
+	 * @param boolean $boolean
+	 * @return String Objeto tipo String
+	 */
+
 	public function toString($boolean = NULL){
 		if(is_null($boolean)){
 			return (new String($this->valor));
@@ -82,6 +125,17 @@ class Boolean {
 		}
 	}
 
+	/**
+	 * Método getBoolean
+	 *
+	 * Retorna true si el argumento, de tipo string, es el nombre de una variable global y
+	 * si su valor es la cadena "true", sin hacer distincion entre mayusculas y minusculas.<br>
+	 * Devuelve false en todo lo demas.
+	 *
+	 * @method bool getBoolean() getBoolean(string $nombre)
+	 * @param string $nombre
+	 * @return bool
+	 */
 	public function getBoolean($nombre = NULL){
 		if(!is_null($nombre) && is_string($nombre) && defined($nombre)){
 			$arreglo = get_defined_constants(true);
@@ -127,10 +181,4 @@ class Boolean {
   	}
 }
 
-class String{
-	private $cadena;
-	public function __construct($cadena){
-		$this->cadena = (string)$cadena;
-	}
-}
 ?>
