@@ -49,6 +49,16 @@ class Boolean {
 		return (bool)$this->valor;
 	}
 
+	/**
+	 * Metodo compareTo: Este metodo compara dos instacias de la clase boolean y retorna un valor tipo (int):
+	 *
+	 * <b>(1)</b> si el objeto a comparar representa un valor true y el pasado por parametro un valor false.<br />
+	 * <b>(-1)</b> si el objeto a comparar representa un valor false y el pasado por parametro un valor true.<br />
+	 * <b>(0)</b> si ambas instancias representan el mismo valor booleano. sea true o false.<br />
+	 *
+	 * @method int compareTo(boolean $boolean)
+	 * @param boolean $boolean
+	 */
 	public function compareTo($boolean = NULL){
 
   		if(!is_null($boolean) && is_object($boolean) && method_exists($boolean, "booleanValue")){
@@ -153,6 +163,22 @@ class Boolean {
 		}
 	}
 
+	/**
+	 * Metodo valueOf: Este método puede recibir dos parámetros distintos sea tipo booleano o tipo string.
+	 * >>>Si recibe un string , este método debe devolver un boolean que represente el valor
+	 * pasado por el string, si este valor es:<br/><br/>
+	 * 	[<b>"true"</b>]: el método debe devolver su representación en boolean es decir true.<br/>
+	 *  [<b>' ' o "false"</b>]: el método debe devolver un un valor booleana false.<br/>
+	 *
+	 * >>>Si recibe un boolean, este método debe devolver una instancia de la clase boolean,
+	 * la cual represente el valor que recibe como parámetro es decir, si recibe un valor
+	 * true debe retornar una instancia de la clase boolean con valor true. Si recibe un valor
+	 * false debe retornar una instancia con valor false.
+	 *
+	 * @method Boolean valueOf(boolean $Str_bool) | valueOf(String $Str_bool)
+	 *
+	 * @param boolean  String $Str_bool
+	 */
 	public function valueOf($Str_bool=NULL){
   		if(is_null($Str_bool)){
   			throw new Exception ('Error valueOf('.$Str_bool.').<br>');
