@@ -7,23 +7,19 @@ class Float extends Number{
 	static private $instancia = NULL;
 
 
-	function __construct($numberFloat) {
-		try {
-		if (is_numeric($numberFloat))
-			$this->value = $numberFloat;
-		}catch (Exception $e){
-			echo 'Se ha producido la siguiente excepción: ', $e->getMessage(), "\n";
-		}
+	public function __construct($numberFloat) {
+        if (is_numeric($numberFloat))
+        	$this->value = $numberFloat;
+        else
+        	throw new exception ('Se ha producico un error, ' .
+                                'parámetro del constructor de la clase no es númerico');
 	}
-	function isFloat($varNumber){
-		try{
-		if (!is_numeric($varNumber))
-			return true;
-     	else
-			return false;
-		}catch (Exception $e){
-			echo 'Se ha producido la siguiente excepción: ', $e->getMessage(), "\n";
-    	}
+
+	public function isFloat($varNumber){
+        if (is_numeric($varNumber))
+        	return true;
+        else
+            return false;
 	}
 
 	public function intValue(){
