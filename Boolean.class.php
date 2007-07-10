@@ -15,8 +15,9 @@ class Boolean {
 	 * @property mixed $valor propiedad privada valor de lectura y esritura
 	 */
 	private $valor;
-	/*
-	 * La clase Boolean instancia objetos cuyo valor puede ser de tipo bool, true o false
+	/**
+	 * @param boolean,string value
+	 * Acepta tanto valores boolean como valores string
 	 */
 	public function __construct($value = NULL){
 	  if (!is_null($value)){
@@ -91,7 +92,11 @@ class Boolean {
   			}
   		}
   	}
-
+	/**
+	 * @param Boolean boolean
+	 * Returna true si y solo si el valor es diferente de NULL
+	 * y representa el mismo valor booleano de este objeto
+	 */
 	public function equals($boolean = NULL){
 	  if (NULL != $boolean && is_object($boolean) && "Boolean" == get_class($boolean)){
 	  	if ($this->valor === $boolean->getBoolean()){
